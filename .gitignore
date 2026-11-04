@@ -1,0 +1,19 @@
+﻿# Raw Windows event logs
+*.evtx
+
+# Raw and unsanitized evidence
+evidence/raw/
+evidence/private/
+evidence/unsanitized/
+
+# Local transfer data
+SOC-Project-Transfer/
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Operating system files
+Thumbs.db
+.DS_Store

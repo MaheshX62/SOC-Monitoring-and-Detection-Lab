@@ -1,0 +1,6 @@
+﻿index=main host="SOC-Windows" source="WinEventLog:Security" EventCode=4625
+| rex field=Message "(?s)Account For Which Logon Failed:.*?Account Name:\s*(?<failed_account>.*?)\s+Account Domain:"
+| bin _time span=5m
+| stats count as Failed_Attempts values(Workstation_Name) as Workstations by _time failed_account Source_Network_Address
+| where Failed_Attempts >= 2
+| sort - Failed_Attempts

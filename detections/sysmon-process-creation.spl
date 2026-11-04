@@ -1,0 +1,3 @@
+﻿index=main host="SOC-Windows" source="WinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=1
+| stats count as Process_Creations values(User) as Users by Image ParentImage
+| sort - Process_Creations
